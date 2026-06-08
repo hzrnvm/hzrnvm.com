@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hzrn</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./navpage.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+        h2 {
+            color: white;
+            mix-blend-mode: difference;
+        }
+        
+        #fade {
+            position: absolute;
+            background: linear-gradient(to right, #000f 0%, #0008 10%, #0003 20%, #0000 30%, #0000 70%,  #0003 80%, #0008 90%, #000f 100%);
+        }
+
+        #fade:hover, #center:hover {
+            transition: transform 0.2s ease;
+            transform: scale(1.05);
+        }
+
+        .orbiters {
+            --r: 18rem;
+            --r3n: calc(var(--r) * sqrt(3) / 2);
+            --r1: calc(var(--r) / 2);
+            --rn: calc(var(--r) * -1);
+            --r3: calc(var(--r3n) * -1);
+            --r1n: calc(var(--r1) * -1);
+        }
+        
+        .ban {
+            --lc: #609;
+            --dc: #000;
+        }
+    </style>
+</head>
+<body style="--speed: 150s;">
+    <div id="normal">
+        <main>
+            <div>
+                <a class="orbiters" href="./music" style="--offset: translate(var(--r1n), var(--r3));" aria-label="music">
+                    <img class="orbitimg" src="./images/handtogod.jpg" alt="">
+                </a>
+                <h2>music</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./presence" style="--offset: translate(var(--r1), var(--r3));" aria-label="presences">
+                    <img class="orbitimg" src="./images/tree.jpg" alt="">
+                </a>
+                <h2 style="font-size: 2em;">presences</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./aboutme" style="--offset: translate(var(--r), 0);" aria-label="about me">
+                    <img class="orbitimg" src="./images/neck.jpg" alt="">
+                </a>
+                <h2 style="font-size: 2em;">aboutme</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./links" style="--offset: translate(var(--r1), var(--r3n));" aria-label="links">
+                    <img class="orbitimg" src="./images/eclipse.jpeg" alt="">
+                </a>
+                <h2>links</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./misc" style="--offset: translate(var(--r1n), var(--r3n));" aria-label="misc">
+                    <img class="orbitimg" src="./images/linsquarium.png" alt="">
+                </a>
+                <h2>misc</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./blog" style="--offset: translate(var(--rn), 0);" aria-label="blog">
+                    <img class="orbitimg" src="./images/13670845.jpg" alt="">
+                </a>
+                <h2>blog</h2>
+            </div>
+        </main>
+        <div id="center">
+            <div id="fade"></div>
+            <img src="./images/mainimage.jpg" alt="Mysterious abstract image. I don't know how to describe it. The automatic describer described it by saying 'An obscured figure stands before a backdrop of fiery hues.'">
+        </div>
+        <div class="ban" id="leftside">
+            <div class="topside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+            <div class="bottomside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+        </div>
+        <div class="ban" id="rightside">
+            <div class="topside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+            <div class="bottomside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+        </div>
+    </div>
+    <div id="mobile">
+        <a href="./music">
+            <h2>music</h2>
+        </a>
+        <a href="./presence">
+            <h2>presences</h2>
+        </a>
+        <a href="./aboutme">
+            <h2>aboutme</h2>
+        </a>
+        <a href="./links">
+            <h2>links</h2>
+        </a>
+        <a href="./misc">
+            <h2>misc</h2>
+        </a>
+        <a href="./blog">
+            <h2>blog</h2>
+        </a>
+        <p>sorry it looks so boring! you're on a mobile device. try using a computer next time</p>
+    </div>
+    <script>
+        let img = document.getElementById("center");
+
+        img.addEventListener("click", homeclick);
+
+        function homeclick(e) {
+            if (e.metaKey) {
+                console.log("metakey detected, running supercharge");
+                supercharge();
+            } else {
+                console.log("no metakey detected, running rotate");
+                rotate(e);
+            }
+        }
+
+        function supercharge() {
+            const body = document.querySelector("body");
+            const oldspeed = parseInt(body.style.getPropertyValue("--speed").toString().slice(0,-1));
+            console.log(`oldspeed: ${oldspeed}`);
+            let newspeed = "";
+            if (oldspeed < 100) {
+                newspeed = `${oldspeed*30}s`;
+            } else {
+                newspeed = `${oldspeed/30}s`;
+            }
+            console.log(newspeed);
+            body.style.setProperty("--speed", `${newspeed}`);
+        }
+
+        function rotate(k) {
+            document.querySelectorAll(".orbiters").forEach(e => {
+                let offset = e.style.getPropertyValue("--offset").slice(10, -1);
+
+                const transitions = k.shiftKey ? {
+                    "var(--r1n), var(--r3)":    "var(--rn), 0",
+                    "var(--r1), var(--r3)":     "var(--r1n), var(--r3)",
+                    "var(--r), 0":              "var(--r1), var(--r3)",
+                    "var(--r1), var(--r3n)":    "var(--r), 0",
+                    "var(--r1n), var(--r3n)":   "var(--r1), var(--r3n)",
+                    "var(--rn), 0":             "var(--r1n), var(--r3n)"
+                } : {
+                    "var(--r1n), var(--r3)":   "var(--r1), var(--r3)",
+                    "var(--r1), var(--r3)":    "var(--r), 0",
+                    "var(--r), 0":             "var(--r1), var(--r3n)",
+                    "var(--r1), var(--r3n)":   "var(--r1n), var(--r3n)",
+                    "var(--r1n), var(--r3n)":  "var(--rn), 0",
+                    "var(--rn), 0":            "var(--r1n), var(--r3)"
+                };
+
+                const newoffset = transitions[offset] ?? console.log("you fucked up");
+
+                e.style.setProperty("--offset", `translate(${newoffset})`);
+            });
+        }
+    </script>
+</body>
+</html>

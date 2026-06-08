@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hzrn</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../navpage.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+        .orbiters {
+            --r: 15rem;
+            --rn: calc(var(--r) * -1);
+            transition: transform 0.64s ease;
+        }
+
+        .ban {
+            --lc: #090;
+            --dc: #000;
+        }
+
+        @keyframes gif {to {background-position: 0 100%;}}
+
+        .sliding {
+            background-size: cover;
+            width: 8rem;
+            
+            &.color {
+                background-image: url("./images/color.png");
+            
+                &:hover {
+                    animation: gif steps(23) 2.4s infinite;
+                }
+            }
+            &.hzrntactoe {
+                background-image: url("./images/gridgame.png");
+            
+                &:hover {
+                    animation: gif steps(9) 1.2s forwards;
+                }
+            }
+        }
+    </style>
+</head>
+<body style="--speed: 150s;">
+    <div id="normal">
+        <main>
+            <div>
+                <a class="orbiters" href="./colour.html" style="--offset: translate(var(--rn), var(--rn));">
+                    <div class="orbitimg sliding color"></div>
+                </a>
+                <h2>colour</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./hzrntactoe.html" style="--offset: translate(var(--r), var(--rn));">
+                    <div class="orbitimg sliding hzrntactoe"></div>
+                </a>
+                <h2 style="font-size: 2em;">Hzrn-tac-toe</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./milleniumtime.html" style="--offset: translate(var(--r), var(--r));">
+                    <img class="orbitimg" src="./images/2000.png">
+                </a>
+                <h2 style="font-size: 1.5em;">millenium time</h2>
+            </div>
+            <div>
+                <a class="orbiters" href="./garfield.html" style="--offset: translate(var(--rn), var(--r));">
+                    <img class="orbitimg" src="./images/garfield.png">
+                </a>
+                <h2>Garfield</h2>
+            </div>
+            <!-- <div>
+                <p><a href="./colour.html"><b>Color</b></a> - My standardised system of colour names for tertiary and quaternary splits of the wheel (at max saturation)</p>
+                <p><a href="./hzrntactoe.html"><b>Hzrn-tac-toe</b></a> - A tic-tac-toe inspired game I made a few years back. It might suck but it might be cool, I havent played it enough to tell</p>
+                <p><a href="./milleniumtime.html"><b>Millenium time</b></a> - A (very barebones) date-keeping system I use sporadically</p>
+                <p><a href="./garfield.html"><b>Garfield</b></a> - I spent a lot of my youth making edits of Garfield comics. I may pick it up again someday</p>
+                <p><b>More to come, in time</b> - I'm young haha! Most of the stuff I've done in my life is from when I was like… 15. and I'm not putting that on my website, sorry ::P</p>
+            </div> -->
+        </main>
+        <div id="center">
+            <img src="../images/linsquarium.jpg" alt="Linoleum pouring. This is an important historic Hzrn image">
+        </div>
+        <div class="ban" id="leftside">
+            <div class="topside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+            <div class="bottomside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+        </div>
+        <div class="ban" id="rightside">
+            <div class="topside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+            <div class="bottomside topbottom">
+                <div class="sidescrolls lefthalf"></div>
+                <div class="sidescrolls righthalf"></div>
+            </div>
+        </div>
+    </div>
+    <div id="mobile">
+        <a href="./colour.html">
+            <h2>colour</h2>
+        </a>
+        <a href="./hzrntactoe.html">
+            <h2>Hzrn-tac-toe</h2>
+            <p>(not good for mobile)</p>
+        </a>
+        <a href="./milleniumtime.html">
+            <h2>millenium time</h2>
+        </a>
+        <a href="./garfield.html">
+            <h2>Garfield</h2>
+        </a>
+    </div>
+    <script>
+        let img = document.getElementById("center");
+
+        img.addEventListener("click", homeclick);
+
+        function homeclick(e) {
+            if (e.metaKey) {
+                console.log("metakey detected, running supercharge");
+                supercharge();
+            } else if (e.altKey) {
+                window.location.href = "../index.html"
+            } else {
+                console.log("no metakey detected, running rotate");
+                rotate(e);
+            }
+        }
+
+        function supercharge() {
+            const body = document.querySelector("body");
+            const oldspeed = parseInt(body.style.getPropertyValue("--speed").toString().slice(0,-1));
+            console.log(`oldspeed: ${oldspeed}`);
+            let newspeed = "";
+            if (oldspeed < 100) {
+                newspeed = `${oldspeed*30}s`;
+            } else {
+                newspeed = `${oldspeed/30}s`;
+            }
+            console.log(newspeed);
+            body.style.setProperty("--speed", `${newspeed}`);
+        }
+
+        function rotate(k) {
+            document.querySelectorAll(".orbiters").forEach(e => {
+                let offset = e.style.getPropertyValue("--offset").slice(10, -1);
+
+                const transitions = !(k.shiftKey) ? {
+                    "var(--rn), var(--rn)":     "var(--r), var(--rn)",
+                    "var(--r), var(--rn)":      "var(--r), var(--r)",
+                    "var(--r), var(--r)":       "var(--rn), var(--r)",
+                    "var(--rn), var(--r)":      "var(--rn), var(--rn)"
+                } : {
+                    "var(--rn), var(--rn)":     "var(--rn), var(--r)",
+                    "var(--r), var(--rn)":      "var(--rn), var(--rn)",
+                    "var(--r), var(--r)":       "var(--r), var(--rn)",
+                    "var(--rn), var(--r)":      "var(--r), var(--r)"
+                };
+
+                
+                const newoffset = transitions[offset] ?? console.log("you fucked up");
+                
+                console.log(`old offset: ${offset}`)
+                console.log(`new offset: ${newoffset}`)
+
+                e.style.setProperty("--offset", `translate(${newoffset})`);
+            });
+        }
+    </script>
+</body>
+</html>

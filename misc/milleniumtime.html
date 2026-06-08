@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Millenium time</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" media="all">
+  <style>
+    body {
+        background: black;
+    }
+    
+    h2 {
+        position: absolute;
+        left: 50%;
+        text-align: center;
+        top: 50%;
+        font-size: 8em;
+        transform: translate(-50%,-50%);
+        margin: 0;
+        color: #0ff;
+        font-weight: normal;
+        width: 100vw;
+    }
+
+    @media (max-width:960px) {
+      h2 {
+          font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2 id="dowy"></h2>
+  <script>
+    const today = new Date();
+    let day = 0;
+    const daofye = date => (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 86400000;
+    const millDate = (date, year = (date.getFullYear() % 100)) => ((Math.floor(year / 4) * 1461) + ((year % 4) * 365 + 1)) + daofye(date);
+
+    function showDate() {
+      const dow = day === 0 ? "Sunday"
+        : day === 1 ? "Monday"
+          : day === 2 ? "Tuesday"
+            : day === 3 ? "Wednesday"
+              : day === 4 ? "Thursday"
+                : day === 5 ? "Friday"
+                  : "Saturday";
+      document.getElementById('dowy').innerHTML = `${dow}, ${millDate(today)}`;
+    }
+
+    window.onload = function () {
+      day = today.getDay();
+      showDate();
+      if (day % 6 !== 0) {
+        if (sinday(today) < 32100) {
+          mustank();
+        }
+        startTime();
+      } else {
+        document.getElementById('txt').innerHTML = ":3";
+        document.getElementById('mustank').innerHTML = "no classes 😁";
+      }
+    }
+  </script>
+</body>
+</html>

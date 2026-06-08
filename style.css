@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+a, a * {
+    text-decoration: none; color: inherit;
+
+    &:hover {text-decoration: underline; cursor: pointer;}
+}
+
+.ebr {
+     margin-bottom: 0.75rem;
+}
+
+.eebr {
+     margin-bottom: 3rem;
+}
+
+#backbutton {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}

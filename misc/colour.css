@@ -1,0 +1,45 @@
+body {
+  text-align: center;
+  color: black;
+  margin: 0;
+}
+    
+a {
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+header > h2 {line-height: 4vh;}
+
+.modeSwitch {
+  user-select: none;
+}
+
+#red              {background: #ff0000;}
+#vermilion        {background: #ff3f00;}
+#orange           {background: #ff7f00;}
+#amber            {background: #ffbf00;}
+#yellow           {background: #ffff00;}
+#lime             {background: #bfff00;}
+#chartreuse       {background: #7fff00;}
+#harlequin        {background: #3fff00;}
+#green            {background: #00ff00;}
+#erin             {background: #00ff3f;}
+#springgreen      {background: #00ff7f;}
+#aquamarine       {background: #00ffbf;}
+#cyan             {background: #00ffff;}
+#capri            {background: #00bfff;}
+#azure            {background: #007fff;}
+#cerulean         {background: #003fff;}
+#blue             {background: #0000ff;}
+#ultramarine      {background: #3f00ff;}
+#violet           {background: #7f00ff;}
+#electricpurple   {background: #bf00ff;}
+#magenta          {background: #ff00ff;}
+#razzledazzlerose {background: #ff00bf;}
+#rose             {background: #ff007f;}
+#crimson          {background: #ff003f;}

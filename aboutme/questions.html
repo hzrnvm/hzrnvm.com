@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./aboutme.css" rel="stylesheet" type="text/css" media="all">
+    <title>Questions</title>
+    <style>
+        main {
+            background-color: #e883f1;
+        }
+
+        main > div:first-child {
+            background: linear-gradient(25deg, #e883f1 0%, #e883f1 74.75%, #000 74.75%)
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin: 0 3rem;
+        }
+
+        textarea {
+            margin-bottom: 1rem;
+            font-size: 1.2em;
+            max-width: 35rem;
+            border: none;
+        }
+
+        section {
+            background-color: #e883f1;
+            margin-top: 2rem;
+            border-top: 0.33rem #000 solid;
+            padding: 1rem 3rem;
+        }
+
+        .qna {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.33rem;
+            font-weight: bold;
+            margin-block: 0.5rem;
+        }
+
+        .answer {
+            padding-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div>
+            <div>
+                <h1>Questions</h1>
+                <img id="icon" src="../images/mainimage.jpg">
+            </div>
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdXGYKnNPsBNmrw1DWSaktZK7yuhp6BQY8x9PoT69Urg55HLg/formResponse"
+      target="_self"
+      id="bootstrapForm"
+      method="POST">
+                <textarea rows="7" cols="47" maxlength="10000" name="entry.1839685944" id="1839685944" spellcheck="false" placeholder="ask anything you like! feel free to be anonymous or silly I don't care"></textarea>
+                <input type="submit" value="Send question">
+
+    <input type="hidden" name="fvv" value="1">
+        <input type="hidden" name="fbzx" value="6756770561274538801">
+            </form>
+        </div>
+        <section><div class="qna">
+                <h2><span class="date">8 Apr 2026</span> - <span class="question">would you rather have unlimited bacon but no games or unlimited games but no games (sincerely bowser) (also what's your favorite negativland album)</span></h2>
+                <p class="answer">Unlimited games but no games easy. Also my fav Negativland album is probably Dispepsi but True False / The World Will Decide (treating them as one album) are riiiiight behind it. I mean that's what I've been listening to mostly lately, but Dispepsi is historically my fav, I always love that album man, always means so much to me. we can get out-of-the-ordinary, but we can't live there</p>
+            </div>
+            <div class="qna">
+                <h2><span class="date">2 Feb 2026</span> - <span class="question">How do you pronounce hzrn</span></h2>
+                <p class="answer">however you want, honestly. The correct pronunciation is just like "Heaven", but I hear /hǝ'zɹn/ often too and I'm cool with that. The only pronunciation that is not allowed is like "horn". One person said it like that and yeah that's the only disallowed one</p>
+            </div>
+            <div class="qna">
+                <h2><span class="date">3 Jan 2026</span> - <span class="question">hello hzrn! i am the second 42 you mentioned on the description of the Mypower single. https://hzrnvm.com/music/mypower.html. i do indeed exist, i would like to let you know. // what does the Very Much series represent? what does it mean to you specifically? what are your favorite songs from the trilogy? those are three questions i wanted to ask you. more like 2 and a half but it doesnt matter )
+</span></h2>
+                <p class="answer">This is difficult… I'll answer them in reverse order. My favourite songs from the trilogy are… pretty much all from VM3, if taken as a unit. But if I had to pick one from each, I'd say Hard Penis from VM1, Very Much from VM2 (though I'm kinda split on it), and probably I'm Bringing Piss Back from VM3. The other two questions are hard to answer separately. I think of a ton of different things they could mean all the time: they're about music, they're about Hzrn, they're about "how much can change in a year" like I said on <a href="../music/verymuch3.html">the VM3 page</a>. But ultimately, it's hard to pinpoint since VM1 came about really just on a whim, just me putting together what I had at the time and calling it an album. VM2 had me thinking I had grown beyond that, but it was truly the same. and then VM3 was actual growth. It's still a reflection of Very Much, but I didn't let its restrictions define it. It's its own piece of art. So, asking what the Very Much trilogy represents is basically just asking what Very Much 3 represents. and I think it's that all art can be reflected into greatness. VM1 (and VM2) are not "great works of art", but VM3, a reflection, is. IDK, i'm rambling! Most questions won't get answers this long to be clear, this was a special one</p>
+            </div>
+            <!--
+            <div class="qna">
+                <h2><span class="date"></span> - <span class="question"></span></h2>
+                <p class="answer"></p>
+            </div>
+            -->
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+    <script>
+// This script requires jQuery and jquery-form plugin
+// You can use these ones from Cloudflare CDN
+$('#bootstrapForm').submit(function (event) {
+    event.preventDefault()
+    var extraData = {}
+    $('#bootstrapForm').ajaxSubmit({
+        data: extraData,
+        dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
+        error: function () {
+            // Submit of form should be successful but JSONP callback will fail because Google Forms
+            // does not support it, so this is handled as a failure.
+            // You can also redirect the user to a custom thank-you page:
+            window.location = 'http://www.hzrnvm.com/aboutme'
+        }
+    })
+})
+    </script>
+</body>
+</html>

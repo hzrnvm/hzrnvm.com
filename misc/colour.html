@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./colour.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+      h2 {line-height: 8vh;}
+    </style>
+    <script>
+      function toHex() {
+        if (document.getElementById("red").innerText == "#ff0000") {
+          document.getElementById("red").innerText = "red";
+          document.getElementById("orange").innerText = "orange";
+          document.getElementById("yellow").innerText = "yellow";
+          document.getElementById("chartreuse").innerText = "chartreuse";
+          document.getElementById("green").innerText = "green";
+          document.getElementById("springgreen").innerText = "spring green";
+          document.getElementById("cyan").innerText = "cyan";
+          document.getElementById("azure").innerText = "azure";
+          document.getElementById("blue").innerText = "blue";
+          document.getElementById("violet").innerText = "violet";
+          document.getElementById("magenta").innerText = "magenta";
+          document.getElementById("rose").innerText = "rose";
+          document.getElementById("hex").style.color = "#ffffff";
+        } else {
+          document.getElementById("red").innerText = "#ff0000";
+          document.getElementById("orange").innerText = "#ff7f00";
+          document.getElementById("yellow").innerText = "#ffff00";
+          document.getElementById("chartreuse").innerText = "#7fff00";
+          document.getElementById("green").innerText = "#00ff00";
+          document.getElementById("springgreen").innerText = "#00ff7f";
+          document.getElementById("cyan").innerText = "#00ffff";
+          document.getElementById("azure").innerText = "#007fff";
+          document.getElementById("blue").innerText = "#0000ff";
+          document.getElementById("violet").innerText = "#7f00ff";
+          document.getElementById("magenta").innerText = "#ff00ff";
+          document.getElementById("rose").innerText = "#ff007f";
+          document.getElementById("hex").style.color = "#ffff00";
+          document.getElementById("deg").style.color = "#ffffff";
+          document.getElementById("rad").style.color = "#ffffff";
+        }  
+      }
+      
+      function toDeg() {
+        if (document.getElementById("red").innerText == "0º") {
+          document.getElementById("red").innerText = "red";
+          document.getElementById("orange").innerText = "orange";
+          document.getElementById("yellow").innerText = "yellow";
+          document.getElementById("chartreuse").innerText = "chartreuse";
+          document.getElementById("green").innerText = "green";
+          document.getElementById("springgreen").innerText = "spring green";
+          document.getElementById("cyan").innerText = "cyan";
+          document.getElementById("azure").innerText = "azure";
+          document.getElementById("blue").innerText = "blue";
+          document.getElementById("violet").innerText = "violet";
+          document.getElementById("magenta").innerText = "magenta";
+          document.getElementById("rose").innerText = "rose";
+          document.getElementById("deg").style.color = "#ffffff";
+        } else {
+          document.getElementById("red").innerText = "0º";
+          document.getElementById("orange").innerText = "30º";
+          document.getElementById("yellow").innerText = "60º";
+          document.getElementById("chartreuse").innerText = "90º";
+          document.getElementById("green").innerText = "120º";
+          document.getElementById("springgreen").innerText = "150º";
+          document.getElementById("cyan").innerText = "180º";
+          document.getElementById("azure").innerText = "210º";
+          document.getElementById("blue").innerText = "240º";
+          document.getElementById("violet").innerText = "270º";
+          document.getElementById("magenta").innerText = "300º";
+          document.getElementById("rose").innerText = "330º";
+          document.getElementById("deg").style.color = "#ffff00";
+          document.getElementById("hex").style.color = "#ffffff";
+          document.getElementById("rad").style.color = "#ffffff";
+        }  
+      }
+      
+      function toRad() {
+        if (document.getElementById("red").innerText == "0") {
+          document.getElementById("red").innerText = "red";
+          document.getElementById("orange").innerText = "orange";
+          document.getElementById("yellow").innerText = "yellow";
+          document.getElementById("chartreuse").innerText = "chartreuse";
+          document.getElementById("green").innerText = "green";
+          document.getElementById("springgreen").innerText = "spring green";
+          document.getElementById("cyan").innerText = "cyan";
+          document.getElementById("azure").innerText = "azure";
+          document.getElementById("blue").innerText = "blue";
+          document.getElementById("violet").innerText = "violet";
+          document.getElementById("magenta").innerText = "magenta";
+          document.getElementById("rose").innerText = "rose";
+          document.getElementById("rad").style.color = "#ffffff";
+        } else {
+          document.getElementById("red").innerText = "0";
+          document.getElementById("orange").innerText = "τ/12";
+          document.getElementById("yellow").innerText = "τ/6";
+          document.getElementById("chartreuse").innerText = "τ/4";
+          document.getElementById("green").innerText = "τ/3";
+          document.getElementById("springgreen").innerText = "5τ/12";
+          document.getElementById("cyan").innerText = "τ/2";
+          document.getElementById("azure").innerText = "7τ/12";
+          document.getElementById("blue").innerText = "2τ/3";
+          document.getElementById("violet").innerText = "3τ/4";
+          document.getElementById("magenta").innerText = "5τ/6";
+          document.getElementById("rose").innerText = "11τ/12";
+          document.getElementById("rad").style.color = "#ffff00";
+          document.getElementById("deg").style.color = "#ffffff";
+          document.getElementById("hex").style.color = "#ffffff";
+        }  
+      }
+    </script>
+  </head>
+  <body>
+    <b id="s"></b>
+    <header style="background: black; color: white; height: 4vh;">
+      <h2 style="float: left;">Hzrn's Ternary RGB Names Standard</h2>
+      <h2 style="float: right;">
+        <a href="./colour4.html">Quaternary</a> / 
+        <a style="cursor: pointer;" class="modeSwitch" id="hex" onclick="toHex()">Hex codes</a> / 
+        <a style="cursor: pointer;" class="modeSwitch" id="deg" onclick="toDeg()">Degree Values</a> / 
+        <a style="cursor: pointer;" class="modeSwitch" id="rad" onclick="toRad()">Radian Values</a> / 
+        <a href="./index.html">Back</a>
+      </h2>
+    </header>
+    <h2 id="red">red</h2>
+    <h2 id="orange">orange</h2>
+    <h2 id="yellow">yellow</h2>
+    <h2 id="chartreuse">chartreuse</h2>
+    <h2 id="green">green</h2>
+    <h2 id="springgreen">spring green</h2>
+    <h2 id="cyan">cyan</h2>
+    <h2 id="azure">azure</h2>
+    <h2 id="blue">blue</h2>
+    <h2 id="violet">violet</h2>
+    <h2 id="magenta">magenta</h2>
+    <h2 id="rose">rose</h2>
+  </body>
+</html>

@@ -1,0 +1,281 @@
+body {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ddd;
+}
+
+main {
+    display: flex;
+    border: 0.25rem solid #111;
+    height: 40vw;
+    width: 55vw;
+}
+
+.goback {
+    position: fixed;
+    top: 90%;
+    left: 54.5vw;
+    transform: translateX(calc(-100% - 2px));
+    height: 6vh;
+    width: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border: 0.25rem solid #111;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#left {
+    flex: auto;
+    border-right: 0.125rem #333 solid;
+    background-color: white;
+    min-width: 31.45vw;
+
+    &.other {
+        background-color: hsl(72, 90%, 85%);
+    }
+}
+
+h1 {
+    font-size: 3em;
+    width: 100%;
+    margin: 2rem 0 2rem 4rem;
+    min-height: 3.5rem;
+    white-space: pre-wrap;
+    display: flex;
+
+    &.smallish {
+        font-size: 2.8em;
+        align-items: flex-end;
+    }
+
+    &.smaller {
+        font-size: 2.4em;
+        align-items: flex-end;
+    }
+
+    &.smallerer {
+        font-size: 2em;
+        display: flex;
+        align-items: last baseline;
+    }
+
+    &.smallest {
+        font-size: 1.5em;
+        display: flex;
+        align-items: last baseline;
+    }
+}
+
+.subh {
+    font-size: 1.2rem;
+}
+
+.date {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: bold;
+    align-self: end;
+    padding-right: 0.5rem;
+    margin-top: 0.5rem;
+    opacity: 0.5;
+    transition: opacity 0.33s ease;
+    
+    *:hover > & {
+        opacity: 1;
+    }
+}
+
+p {
+    font-size: 1.15rem;
+    margin: 0 2rem;
+    flex: auto;
+    padding-right: 3rem;
+    height: 40vh;
+
+    & * {
+        margin: auto;
+    }
+}
+
+.spoiler {
+    background-color: black;
+
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: auto;
+    width: 100%;
+    max-height: 12vw;
+    min-height: 5.5vw;
+    border-top: 0.25rem #333 solid;
+    background-color: #333;
+    margin-top: auto;
+    padding: 0 4rem;
+
+    &:has(.fourth) {
+        padding: 0 2.5rem;
+    }
+}
+
+a {
+    &:not(:has(img)) {
+        color: blue;
+    }
+
+    &:has(img) {
+        display: grid;
+        aspect-ratio: 1;
+        width: 4rem;
+    
+        nav & img {
+            width: 100%;
+            transition: transform 0.2s ease-out;
+        }
+    
+        nav &:hover img {
+            transform: scale(1.1)
+        }
+    
+        &.inactive {
+            filter: grayscale() brightness(200%);
+        }
+    }
+}
+
+
+#right {
+    min-width: 23vw;
+    border-left: 0.125rem #333 solid;
+}
+
+#img {
+    width: 100%;
+    max-height: 40%;
+    aspect-ratio: 1;
+    background: black;
+}
+
+img {
+    aspect-ratio: 1;
+    max-height: 100%;
+    margin: auto;
+}
+
+#ol {
+    width: 100%;
+    height: 100%;
+    border-top: 0.25rem #333 solid;
+    display: flex;
+    background-color: #eee;
+    overflow-y: scroll;
+    overflow-wrap: anywhere;
+    padding-right: 1rem;
+}
+
+ol {
+    width: 100%;
+    line-height: 1.5rem;
+    margin: auto;
+    padding-block: 1rem;
+
+    &.compress {
+        line-height: 1.3rem;
+    }
+
+    &.collab {
+        font-size: 0.9em;
+    }
+}
+
+li span {
+    font-size: 0.75em;
+}
+
+.lrbutton {
+    display: table;
+    position: absolute;
+    cursor: pointer;
+    & img {
+        width: 8vw;
+        aspect-ratio: 1;
+    }
+    
+    & h2 {
+        text-align: center;
+        font-size: 4em;
+        margin: 0;
+    }
+
+    &.right {
+        right: 2vw;
+        padding-right: 0;
+        transition: padding-right 0.33s ease;
+        
+        
+        &:hover {
+            padding-right: 1vw;
+            text-decoration: none;
+        }
+    }
+
+    &.left {
+        left: 2vw;
+        padding-left: 0;
+        transition: padding-left 0.33s ease;
+        
+        
+        &:hover {
+            padding-left: 1vw;
+            text-decoration: none;
+        }
+    }
+}
+
+@media (max-width:960px) {
+    main {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    p {
+        font-size: 0.9rem;
+        padding-right: 0;
+    }
+
+    nav {
+        max-height: 24vw;
+        min-height: 11vw;
+        padding: 0 2rem;
+    }
+
+    #right {
+        display: none;
+    }
+
+    .goback {
+        display: none;
+    }
+    
+    .lrbutton {
+        display: none;
+    }
+}

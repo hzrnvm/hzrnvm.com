@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title>Hzrn-tac-toe</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" media="all">
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <style>
+    body { 
+      background-color: white;
+      color: black;
+    }
+    
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .grid {
+      width: 36em;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    div {
+      --border: 4px solid black;
+      width: 100%;
+      aspect-ratio: 1;
+      font-size: 12em;
+      line-height: 100%;
+      background-color: white;
+      border: none;
+      caret-color: transparent;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    div:nth-child(-n+6):nth-child(n+4):not(:nth-child(5)) {
+      box-shadow:
+        inset 0 4px 0 0 black,
+        inset 0 -4px 0 0 black;
+    }
+    div:nth-child(3n+2) {
+      box-shadow:
+        inset 4px 0 0 0 black,
+        inset -4px 0 0 0 black;
+    }
+    div:nth-child(5) {
+      box-shadow:
+        inset 4px 0 0 0 black,
+        inset -4px 0 0 0 black,
+        inset 0 4px 0 0 black,
+        inset 0 -4px 0 0 black;
+    }
+    
+    div:focus {
+      outline: none;
+    }
+    
+    .options {
+      width: 24rem;
+      display: flex;
+      font-size: 4em;
+      margin-top: 2rem;
+      justify-content: space-between;
+    }
+    
+    p {
+      display: block;
+      cursor: pointer;
+    }
+
+    h2, p {
+        margin: 0;
+    }
+    
+    .score {
+      font-size: 12em;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .score.blu {
+      left: 10%;
+      color: blue;
+    }
+    .score.red {
+      left: 90%;
+      color: red;
+    }
+    
+    #winner {
+      font-size: 4em;
+      margin-top: 2rem;
+      display: none;
+    }
+    
+    #help {
+      font-size: 3em;
+      position: fixed;
+      top: 0;
+      right: 0;
+      margin: 0 0.5rem;
+      user-select: none;
+    }
+    #help:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    
+    #info {
+      --width: 45em;
+      --height: 15em;
+      height: var(--height);
+      width: var(--width);
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      position: absolute;
+      left: calc(50% - var(--width) / 2);
+      top: calc(50% - var(--height) / 2);
+      padding: 1em;
+      border: 4px solid black;
+      border-radius: 0.5rem;
+      text-align: center;
+      background-color: #ace;
+    }
+    #info > h2 {
+      font-size: 3em;
+      font-weight: bold;
+    }
+    #info > h3 {
+      font-size: 1.5em;
+      margin-top: 1em;
+    }
+    #info > button {
+      height: 3rem;
+      width: 3rem;
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5rem;
+      cursor: pointer;
+      font-size: 2em;
+      font-weight: bold;
+      color: white;
+      border-radius: 1.5rem;
+      background: linear-gradient(155deg, #f55 10%, #d33, #b11 80%);
+    }
+    #info > button:active {
+      background: linear-gradient(155deg, #b11 10%, #d33, #f55 80%);
+    }
+    #info > button:before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      z-index: -1;
+      border: 4px solid white;
+      border-radius: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="help">?</h2>
+  <h2 class="score blu"></h2>
+  <h2 class="score red"></h2>
+  <main>
+    <section class="grid">
+      <div id="1"></div>
+      <div id="2"></div>
+      <div id="3"></div>
+      <div id="4"></div>
+      <div id="5"></div>
+      <div id="6"></div>
+      <div id="7"></div>
+      <div id="8"></div>
+      <div id="9"></div>
+    </section>
+    <section class="options">
+      <p class="1">1</p>
+      <p class="2">2</p>
+      <p class="3">3</p>
+      <p class="4">4</p>
+      <p class="5">5</p>
+      <p class="6">6</p>
+      <p class="7">7</p>
+      <p class="8">8</p>
+      <p class="9">9</p>
+    </section>
+    <h2 id="winner">The winner is </h2>
+    <section id="info" style="display: none;">
+      <button onclick="document.getElementById('info').style.display = 'none'">Ⅹ</button>
+      <h2>Rules of the game</h2>
+      <h3>
+        Red and Blue take turns placing the numbers in the grid.<br>
+        If you make a row, your score becomes the sum of the row.<br>
+        The player with the higher score at the end wins.
+      </h3>
+    </section>
+  </main>
+  <script src="gridgame.js"></script>
+</body>
+</html>
