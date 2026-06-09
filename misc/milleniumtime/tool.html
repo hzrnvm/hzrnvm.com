@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Millennium time tool</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" media="all">
+  <style>
+    body {
+        background: black;
+    }
+    
+    h2 {
+        font-size: 4em;
+        margin: 0;
+        color: #0ff;
+        font-weight: normal;
+        width: 100vw;
+    }
+
+    @media (max-width:960px) {
+      h2 {
+          font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>What is Millennium Time?</h2>
+  <p>Millennium time is a way of indexing time that just counts days since the beginning of the millemnium. So any given day is just considered the nth day of the Millennium.</p>
+  <h2>Do you have a Millennium Time tool?</h2>
+  <p>Yes, I do! It only works for days in the 2000s millennium right now, but I'll add more later.</p>
+  <form type="">
+    <input type="date" id="day" name="day">
+    <button type="button" onclick="convertDate()">Show me!</button>
+  </form>
+  <p id="output"></p>
+  <script>
+    const daofye = date => (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 86400000;
+    const millDate = (date, year = (date.getFullYear() % 100)) => ((Math.floor(year / 4) * 1461) + ((year % 4) * 365 + 1)) + daofye(date);
+    function convertDate() {
+        const day = document.getElementById("day").valueAsDate
+        document.getElementById("output").innerHTML = millDate(day)
+    }
+  </script>
+</body>
+</html>
