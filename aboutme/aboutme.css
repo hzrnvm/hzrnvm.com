@@ -17,7 +17,7 @@ main {
     & > div {
         display: flex;
         flex-direction: column;
-        background: linear-gradient(25deg, var(--bgcol) 0%, var(--bgcol) 85%, #000 85%);
+        background: linear-gradient(35deg, var(--bgcol) 0%, var(--bgcol) 85%, #000 85%);
     }
 }
 
