@@ -33,14 +33,17 @@
 <body>
   <h2 id="dowy"></h2>
   <script>
-    const today = new Date();
-    let day = 0;
     const daofye = date => (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 86400000;
     const millDate = (date, year = (date.getFullYear() % 100)) => ((Math.floor(year / 4) * 1461) + ((year % 4) * 365 + 1)) + daofye(date);
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-    function showDate() {
-      document.getElementById('dowy').innerHTML = `${days[day]}, <a href="./tool.html">${millDate(today)}</a>`;
+    function showDate(td) {
+      document.getElementById('dowy').innerHTML = `${days[td.getDay()]}, <a href="./tool.html">${millDate(td)}</a>`;
+    }
+
+    window.onload = function () {
+      const today = new Date();
+      showDate(today);
     }
   </script>
 </body>
