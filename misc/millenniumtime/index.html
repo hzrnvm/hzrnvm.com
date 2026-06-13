@@ -38,7 +38,7 @@
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
     function showDate(td) {
-      document.getElementById('dowy').innerHTML = `$<a href="./tool.html">{days[td.getDay()]}</a>, ${millDate(td)}`;
+      document.getElementById('dowy').innerHTML = `<a href="./tool.html">${days[td.getDay()]}</a>, ${millDate(td)}`;
     }
 
     window.onload = function () {
